@@ -26,7 +26,7 @@ public class BrowserUtils {
         - If condition matches, will break loop.
     Arg3: expectedInTitle to be compared against actualTitle
      */
-    public static void switchWindowAndverify( String expectefInUrl, String expectedTitle){
+    public static void switchWindowAndverify( String expectedInUrl, String expectedTitle){
         Set<String> allWindowHandles = Driver.getDriver().getWindowHandles();
 
         for (String each : allWindowHandles) {
@@ -34,7 +34,7 @@ public class BrowserUtils {
 
             System.out.println("current URl "+Driver.getDriver().getCurrentUrl());
 
-            if (Driver.getDriver().getCurrentUrl().contains(expectefInUrl)){
+            if (Driver.getDriver().getCurrentUrl().contains(expectedInUrl)){
                 break;
             }
         }
@@ -51,6 +51,10 @@ public class BrowserUtils {
     public static void verifyTitle(String expectedTitle){
 
         Assert.assertEquals(Driver.getDriver().getTitle(),expectedTitle);
+    }
+
+    public static void verifyURLContains(String expectedInURL){
+Assert.assertTrue((Driver.getDriver().getCurrentUrl().contains(expectedInURL)));
     }
 
     /*
