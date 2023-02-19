@@ -7,9 +7,10 @@ import io.cucumber.java.BeforeStep;
 
 public class Hooks {
     /*
-    in the class we will be able to pass pre&post cponditions to each scenario and each step
+    in the class we will be able to pass pre&post conditions to each scenario and each step
      */
-    @Before //import from io.cuucumber.java not from junit
+    @Before //import from io.cuucumb
+    // er.java not from junit
     public void setupScenario(){
         System.out.println("=== setting up browser using cucumber @Before");
     }
@@ -19,7 +20,7 @@ public class Hooks {
     }
 
     @Before (value = "@db",order = -1)
-    public void setupForDataaseScenarios(){
+    public void setupForDatabaseScenarios(){
         System.out.println("=== this will onlt apply to scenarios wth @login tag");
     }
 
