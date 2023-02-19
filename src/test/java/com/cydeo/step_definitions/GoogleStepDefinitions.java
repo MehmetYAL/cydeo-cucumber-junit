@@ -9,6 +9,23 @@ import org.openqa.selenium.Keys;
 
 public class GoogleStepDefinitions {
 GoogleSearchPage googleSearchPage=new GoogleSearchPage();
+
+    @When("user types {string} and clicks enter")
+    public void userTypesAndClicksEnter(String searcKeyword) {
+        googleSearchPage.searchBox.sendKeys(searcKeyword+Keys.ENTER);
+    }
+
+    @Then("user sees {string} in the google title")
+    public void userSeesInTheGoogleTitle(String string) {
+        String expectedTitle =string+" - Google Search";
+        String actualTitle=Driver.getDriver().getTitle();
+
+        //JUnit assertion accpets first expectedTitle than actualTitle
+        Assert.assertEquals("Title is not as we axpected!",expectedTitle,actualTitle);
+
+
+    }
+
     @When("user types apple and clicks enter")
     public void user_types_apple_and_clicks_enter() {
         googleSearchPage.searchBox.sendKeys("apple"+Keys.ENTER);
@@ -38,11 +55,5 @@ String expectedTitle ="apple - Google Search";
         Driver.closeDriver();
     }
 
-    @When("user types {string} and clicks enter")
-    public void userTypesAndClicksEnter(String string) {
-    }
 
-    @Then("user sees {string} in the google title")
-    public void userSeesInTheGoogleTitle(String string) {
-    }
 }
