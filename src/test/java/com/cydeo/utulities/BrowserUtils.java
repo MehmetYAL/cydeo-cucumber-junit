@@ -4,8 +4,11 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -67,4 +70,23 @@ Assert.assertTrue((Driver.getDriver().getCurrentUrl().contains(expectedInURL)));
 
     }
 
+    /**
+     * This method will accept a dropdown as a WebElement
+     * and return all the options' text in a List of String.
+     * @param dropdownElement
+     * @return List<String> actualOptionsAsString
+     */
+
+    public static List<String> dropdownOptionsAsString(WebElement dropdownElement){
+        Select select=new Select(dropdownElement);
+        //list of all actual mont<options> as a web element
+        List<WebElement> actualOptionsWebElement = select.getOptions();
+
+        //list of all actual mont<options> as a string
+        List<String> actualoptionsAsString=new ArrayList<>();
+
+        for (WebElement each : actualOptionsWebElement) {
+            actualoptionsAsString.add(each.getText());
+        }return actualoptionsAsString;
+    }
 }

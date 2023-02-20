@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         //dryRun = true --> do not run my step_definitions, but only check if any step is missing snippet
         //dryRun = false --> this will turn off dryRun, and our code will run as expected.
 )
-//2:49
+
 
 public class CukesRunner {
 
