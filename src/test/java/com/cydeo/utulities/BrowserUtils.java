@@ -89,4 +89,15 @@ Assert.assertTrue((Driver.getDriver().getCurrentUrl().contains(expectedInURL)));
             actualoptionsAsString.add(each.getText());
         }return actualoptionsAsString;
     }
+
+    public static void clickRadioButton(List<WebElement> radioButtons,String attributevalue) {
+
+
+        for (WebElement each : radioButtons) {
+            if (each.getAttribute("value").equalsIgnoreCase(attributevalue)) {
+                each.click();
+            }
+
+        }
+    }
 }

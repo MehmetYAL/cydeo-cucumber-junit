@@ -11,7 +11,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class Order_StepDefinition {
 
@@ -66,8 +69,15 @@ basePage.order.click();
     }
 
     @And("user selects credit card type {string}")
-    public void userSelectsCreditCardType(String string) {
-        orderPage.creditCardType.click();
+    public void userSelectsCreditCardType(String expectedcreditCardType) {
+
+        List<WebElement> creditCardTypes = orderPage.creditCardType;
+
+        for (WebElement each : creditCardTypes) {
+           if (each.getAttribute("value").equalsIgnoreCase(expectedcreditCardType)){
+               each.click();
+           }
+        }
     }
 
     @And("user enters credit card number {string}")
