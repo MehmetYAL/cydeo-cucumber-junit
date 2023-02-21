@@ -22,7 +22,7 @@ Feature: User should be able to login using correct credentials
   months
   dropdown
 
-  @wip
+
     When user enters below credentials
       | username | Test |
       | password | Tester |
