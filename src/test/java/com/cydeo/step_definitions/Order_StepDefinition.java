@@ -2,6 +2,7 @@ package com.cydeo.step_definitions;
 
 import com.cydeo.pages.BasePage;
 import com.cydeo.pages.OrderPage;
+import com.cydeo.pages.ViewAllOrderPage;
 import com.cydeo.pages.WebTablePage;
 import com.cydeo.utulities.BrowserUtils;
 import com.cydeo.utulities.ConfigurationReader;
@@ -23,6 +24,7 @@ public class Order_StepDefinition {
     BasePage basePage=new BasePage();
 
     OrderPage orderPage=new OrderPage();
+    ViewAllOrderPage viewAllOrderPage=new ViewAllOrderPage();
     @Given("user is already logged in and on order page")
     public void user_is_already_logged_in_and_on_order_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("webTableUrl"));
@@ -91,9 +93,9 @@ basePage.order.click();
     }
 
     @Then("user should see {string} in first row of the web table")
-    public void userShouldSeeInFirstRowOfTheWebTable(String string) {
-        String actualFirstRow=orderPage.firstRow.getText();
-        String expectedFirstRow=string;
-        Assert.assertEquals(actualFirstRow,expectedFirstRow);
+    public void userShouldSeeInFirstRowOfTheWebTable(String expectedName) {
+        String actualFirstRow=viewAllOrderPage.firstRow.getText();
+
+        Assert.assertEquals(actualFirstRow,expectedName);
     }
 }

@@ -1,5 +1,6 @@
 package com.cydeo.pages;
 
+import com.cydeo.utulities.BrowserUtils;
 import com.cydeo.utulities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -46,6 +47,7 @@ public class OrderPage extends BasePage{
     @FindBy(css = "button[type='submit']")
     public WebElement processOrderButton;
 
-    @FindBy(xpath = "//table[@class='table is-fullwidth']/tbody/tr[1]/td[1]")
-    public WebElement firstRow;
+
+
+
 }
